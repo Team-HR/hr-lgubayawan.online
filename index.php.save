@@ -1,0 +1,2 @@
+<?php
+header("LOCATION:header("Location: http://localhost:8080/meet2eat/index.php");
