@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Manila");
 
 $host = "localhost";
 $user = "root";
-$password = "Xpanner09";//"teamhrmo2019";
+$password = "teamhrmo2019";
 $database = "hrnibai";
 
 $mysqli = new mysqli($host, $user, $password, $database);
@@ -22,7 +22,7 @@ if ($data['surveyed']) {
     // var_dump($data);
     echo json_encode("Ok");
     $answers = $mysqli->real_escape_string(serialize($data["answers"]));
-    $sql = "INSERT INTO `rnr_survey_esib_records` (`answers`, `created_at`,	`updated_at`) VALUES ('$answers', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
+    $sql = "INSERT INTO `rnr_survey_esib_records` (`answers`, `created_at`,`updated_at`) VALUES ('$answers', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
     $mysqli->query($sql);
     echo json_encode("Ok");
 }
