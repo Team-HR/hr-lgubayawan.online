@@ -21,7 +21,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 if ($data['surveyed']) {
     // var_dump($data);
     echo json_encode("Ok");
-    $answers = serialize($data["answers"]);
+    $answers = $mysqli->real_escape_string(serialize($data["answers"]));
     $sql = "INSERT INTO `rnr_survey_esib_records` (`answers`, `created_at`,	`updated_at`) VALUES ('$answers', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
     $mysqli->query($sql);
     echo json_encode("Ok");
